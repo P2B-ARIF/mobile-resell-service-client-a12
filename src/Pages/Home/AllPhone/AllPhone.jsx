@@ -143,7 +143,7 @@ const AllPhone = () => {
                   Price: {resell_price}
                 </h4>
                 <h4 className=" mt-0 p-0 font-medium line-through  text-gray-900 dark:text-white">
-                  Market Price: {real_price}
+                  Market Price: {real_price}   
                 </h4>
                 <h4 className=" mt-0 p-0 font-medium  text-gray-900 dark:text-white">
                   Published: {published_date}
