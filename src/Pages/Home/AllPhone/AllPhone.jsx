@@ -137,7 +137,7 @@ const AllPhone = () => {
          )}
                 </h4>
                 <h4 className=" mt-0 p-0 font-medium  text-gray-900 dark:text-white">
-                    Location: {location}
+                      Location: {location}
                 </h4>
                 <h4 className=" mt-0 p-0 font-medium  text-gray-900 dark:text-white">
                   Price: {resell_price}
