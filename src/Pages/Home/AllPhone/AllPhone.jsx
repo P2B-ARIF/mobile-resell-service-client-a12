@@ -132,7 +132,7 @@ const AllPhone = () => {
                           clip-rule="evenodd"
                         ></path>
                       </svg>
-                        <span className="sr-only"> Icon description</span>
+                          <span className="sr-only"> Icon description</span>
                     </span>
          )}
                 </h4>
