@@ -133,7 +133,7 @@ const AllPhone = () => {
                         ></path>
                         </svg>
                            <span className="sr-only"> Icon description</span>
-                    </span>
+                         </span>
          )}
                 </h4>
                 <h4 className=" mt-0 p-0 font-medium  text-gray-900 dark:text-white">
