@@ -136,7 +136,7 @@ const AllPhone = () => {
                     </span>
                   )}
                 </h4>
-                             <h4 className=" mt-0 p-0 font-medium  text-gray-900 dark:text-white">
+                <h4 className=" mt-0 p-0 font-medium  text-gray-900 dark:text-white">
                   Location: {location}
                 </h4>
                 <h4 className=" mt-0 p-0 font-medium  text-gray-900 dark:text-white">
