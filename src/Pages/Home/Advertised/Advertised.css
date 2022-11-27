@@ -1,0 +1,22 @@
+.advertise__head {
+    margin-top: 5rem;
+  }
+  .advertise__head > div  h1 {
+
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(33, 33, 33);
+    position: relative;
+    display: inline-block;
+  }
+  .advertise__head > div  h1::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 50%;
+    background: red;
+  }

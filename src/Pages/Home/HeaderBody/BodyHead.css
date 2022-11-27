@@ -1,0 +1,59 @@
+.phone__category-content {
+  /* background-color: antiquewhite; */
+}
+
+.phone__category-content .phone-lists {
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+/* .phone__category-content .phone-lists label {
+  background-color: #393939;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.phone__category-content .phone-lists li {
+  margin-top: 0.5rem;
+  border: 1px solid #393939;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+} */
+
+.phone__image-content {
+  display: flex;
+  /* margin-left: 2rem; */
+}
+.swiper-slide-next{
+ 
+}
+.swiper-pagination-bullet {
+  color: white;
+  background-color: aliceblue !important;
+}
+
+.phone__image-content .phone__image {
+  width: 100%;
+  /* height: 50vh; */
+  overflow: hidden;
+  border-radius: 1rem;
+  position: relative;
+}
+.phone__image-content .phone__image h1{
+  font-size: 3rem;
+  font-weight: bold;
+  position: absolute;
+  top: 60%;
+  left: 10%;
+  color: aliceblue;
+  /* letter-spacing: .1rem; */
+}
+.phone__image-content .phone__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: inline-block;
+  border-radius: 1rem;
+}

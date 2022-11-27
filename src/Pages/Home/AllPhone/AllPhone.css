@@ -1,0 +1,86 @@
+.allPhone__head {
+  margin-top: 5rem;
+}
+.allPhone__head > div {
+  display: flex;
+  justify-content: center;
+}
+.allPhone__head > div h1 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+  color: rgb(33, 33, 33);
+  position: relative;
+  display: inline-block;
+}
+.allPhone__head > div h1::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 50%;
+  background: red;
+}
+
+.allPhone__head .allPhone__ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.allPhone__head .allPhone__ul li {
+  margin: 0 0.5rem;
+  border-bottom: 2px solid transparent;
+}
+.allPhone__head .allPhone__ul li:hover {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+.phone__content {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin-top: 5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.phone__content .phone__card {
+  /* background-color: antiquewhite; */
+  width: 22%;
+  padding: 0.5rem;
+  border: 1px solid #535353;
+}
+.phone__content .phone__card .phone__image {
+  height: 200px;
+
+  /* height: 50%; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.phone__content .phone__card .phone__image img {
+  width: 90%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+.phone__content .phone__card .phone__details {
+  /* height: 100%; */
+  margin-bottom: 1rem;
+  padding: 0.2rem;
+  /* font-weight: 500; */
+}
+
+.phone__content .phone__card .phone__details h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
+.phone__content .phone__card .phone__details .real {
+  text-decoration: line-through;
+}

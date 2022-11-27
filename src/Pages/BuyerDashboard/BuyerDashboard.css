@@ -1,0 +1,10 @@
+.product_image > div {
+    gap: .5rem;
+    padding: 1rem;
+
+}
+
+.product_image > img{
+    height: 270px;
+    width: 100%;
+}
