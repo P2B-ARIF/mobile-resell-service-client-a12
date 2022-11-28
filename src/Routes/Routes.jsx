@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/categories/${params.name}`),
+          fetch(`${process.env.REACT_APP_PORT}/categories/${params.name}`),
       },
       {
         path: "/login",
@@ -85,7 +85,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/buyerDashboard",
-    element: <BuyerDashboard />,
+    element: (
+      <PrivateRoute>
+        <BuyerDashboard />
+      </PrivateRoute>
+    ),
     children: [
       { path: "/buyerDashboard", element: <DashboardData /> },
       {
@@ -98,7 +102,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/sellerDashboard",
-    element: <SellerDashboard />,
+    element: (
+      <PrivateRoute>
+        <SellerDashboard />
+      </PrivateRoute>
+    ),
     children: [{ path: "/sellerDashboard", element: <MyProducts /> }],
   },
 ]);

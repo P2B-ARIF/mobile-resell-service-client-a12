@@ -70,7 +70,7 @@ const Register = ({ modalIssOpen, setModelIssOpen, setLoginModalOpen }) => {
   const handleGoogleLogin = (e) => {
     e.preventDefault();
 
-    
+
     loginWithGoogle(provider)
       .then((result) => {
         const user = result.user;
