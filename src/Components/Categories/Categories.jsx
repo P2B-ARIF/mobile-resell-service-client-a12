@@ -5,6 +5,7 @@ import { Button, Card, Modal } from "flowbite-react";
 import { RoleChecker } from "../Hooks/userChecker";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 
 const Categories = () => {
   const [visible, setVisible] = useState(false);
@@ -16,27 +17,28 @@ const Categories = () => {
   const isRole = RoleChecker(user);
 
   console.log(categories);
-  const {
-    email,
-    // image,
-    // location,
-    name,
-    product_name,
-    // real_price,
-    resell_price,
-    // varified,
-    // used_time,
-    // published_date,
-    // category_name,
-  } = modelData;
-  console.log(modelData);
+  const { email, name, product_name, resell_price } = modelData;
+
+  const handleReportAdmin = (e, id) => {
+    e.preventDefault();
+
+    fetch(`${process.env.REACT_APP_PORT}/reportAdmin/${id}`, {
+      method: 'PUT',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Your report has been sent successfully");
+        console.log(data);
+      });
+  };
+
   return (
     <div className="categories__head container mx-auto">
       <h1>Lists of {categories[0].category_name}</h1>
       <div className="phone__content">
         {categories?.map((phone, i) => {
           const {
-            // email,
+            _id,
             image,
             location,
             name,
@@ -125,6 +127,13 @@ const Categories = () => {
                       Buyer Only Book
                     </button>
                   )}
+                  <button
+                    onClick={(e) => handleReportAdmin(e, _id)}
+                    type="button"
+                    className="w-full mt-1 py-2.5 px-5 text-sm font-medium text-black  bg-red-500 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-700 focus:z-10  dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                  >
+                    Report to Admin
+                  </button>
                 </React.Fragment>
               </Card>
             </div>

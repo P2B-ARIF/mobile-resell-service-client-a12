@@ -1,13 +1,17 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useContext } from "react";
+import { authContext } from "../../../Components/AuthProvider/AuthProvider";
+import { RoleChecker } from "./../../../Components/Hooks/userChecker";
 
 const navigation = [
   { name: "All Users", to: "/dashboard", current: false },
   { name: "Buyer", to: "/dashboard/buyers", current: true },
   { name: "Seller", to: "/dashboard/sellers", current: false },
+  { name: "Report", to: "/dashboard/report", current: false },
 ];
 
 function classNames(...classes) {
@@ -15,7 +19,19 @@ function classNames(...classes) {
 }
 
 export default function Dashboard() {
+  const { logOut } = useContext(authContext);
   const [active, setActive] = useState("All Users");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+        RoleChecker("");
+        // setTheUser('')
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <>
@@ -52,7 +68,7 @@ export default function Dashboard() {
                           </Link>
                         ))}
                         <Link
-                        
+                          onClick={handleLogout}
                           className="py-2 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                         >
                           Sign Out

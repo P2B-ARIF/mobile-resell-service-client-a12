@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { authContext } from "../../../Components/AuthProvider/AuthProvider";
 import { RoleChecker } from "../../../Components/Hooks/userChecker";
 import toast from "react-hot-toast";
+// const axios = require('axios');
+import axios from "axios";
 
 const AllPhone = () => {
   const [visible, setVisible] = useState(false);
@@ -12,18 +14,21 @@ const AllPhone = () => {
   const [names, setNames] = useState("Apple");
   const [phones, setPhones] = useState([]);
   const [modelData, setModelData] = useState([]);
-
   const { user } = useContext(authContext);
   const isRole = RoleChecker(user);
-  // console.log(isRole);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_PORT}/categories`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllPhones(data);
-      });
-  }, []);
+ 
+  const url = `${process.env.REACT_APP_PORT}/categories`;
+  axios
+    .get(url)
+    .then(function (response) {
+     setAllPhones(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  // console.log(allPhones);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_PORT}/categories/${names}`)
@@ -129,7 +134,7 @@ const AllPhone = () => {
                         <path
                           fill-rule="evenodd"
                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clip-rule="evenodd"
+                          clip-rule="evenodd"
                         ></path>
                       </svg>
                       <span className="sr-only"> Icon description</span>

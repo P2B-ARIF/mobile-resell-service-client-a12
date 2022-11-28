@@ -4,7 +4,8 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Fragment } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { authContext } from "../../Components/AuthProvider/AuthProvider";
-import { RoleChecker } from './../../Components/Hooks/userChecker';
+import { RoleChecker } from "./../../Components/Hooks/userChecker";
+import image from "./../../assets/favicon.png";
 
 const navigation = [
   { name: "Home", to: "/", current: false },
@@ -17,13 +18,13 @@ function classNames(...classes) {
 const BuyerDashboard = () => {
   const [active, setActive] = useState(true);
   const { logOut } = useContext(authContext);
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logOut()
       .then(() => {
-        navigate('/')
-        RoleChecker('')
+        navigate("/");
+        RoleChecker("");
       })
       .catch((err) => console.error(err));
   };
@@ -38,11 +39,7 @@ const BuyerDashboard = () => {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
-                      />
+                      <img className="h-8 w-8" src={image} alt="Company" />
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-center  space-x-4">

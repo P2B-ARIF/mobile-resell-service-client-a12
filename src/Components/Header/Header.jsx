@@ -3,21 +3,17 @@ import "./Header.css";
 import "flowbite";
 import "flowbite-react";
 import { Dropdown, Navbar } from "flowbite-react";
-// import Login from "./../Login/Login";
-// import Register from "./../Register/Register";
 import { authContext } from "./../AuthProvider/AuthProvider";
 import { RoleChecker } from "./../Hooks/userChecker";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from './../../assets/favicon.png'
+import logo from "./../../assets/favicon.png";
 
 const Header = () => {
   const [allPhones, setAllPhones] = useState([]);
   const { user, logOut } = useContext(authContext);
 
   const isRole = RoleChecker(user);
-
-  console.log(isRole);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_PORT}/categories`)
@@ -27,11 +23,10 @@ const Header = () => {
       });
   }, []);
 
-  console.log(allPhones);
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        RoleChecker('')
+        RoleChecker("");
       })
       .catch((err) => console.error(err));
   };
@@ -41,11 +36,7 @@ const Header = () => {
       <nav className="container mx-auto">
         <Navbar fluid={true} rounded={true}>
           <Navbar.Brand href="/">
-            <img
-              src={logo}
-              className="mr-3 h-6 sm:h-9"
-              alt="company Logo"
-            />
+            <img src={logo} className="mr-3 h-6 sm:h-9" alt="company Logo" />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               MRS
             </span>

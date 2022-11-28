@@ -17,6 +17,8 @@ import DashboardData from "../Pages/BuyerDashboard/DashboardData";
 import SellerDashboard from "../Pages/SellerDashboard/SellerDashboard";
 import MyProducts from "../Pages/SellerDashboard/MyProducts";
 import Blog from "../Pages/Blog/Blog";
+import Report from "../Pages/AdminDashboard/Report/Report";
+import Payment from "../Pages/BuyerDashboard/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -57,7 +59,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -71,12 +77,24 @@ export const router = createBrowserRouter([
         path: "/dashboard/sellers",
         element: <AllSellers />,
       },
+      {
+        path: "/dashboard/report",
+        element: <Report />,
+      },
     ],
   },
   {
     path: "/buyerDashboard",
     element: <BuyerDashboard />,
-    children: [{ path: "/buyerDashboard", element: <DashboardData /> }],
+    children: [
+      { path: "/buyerDashboard", element: <DashboardData /> },
+      {
+        path: "/buyerDashboard/payment/:id",
+        loader: ({ params }) =>
+          fetch(`${process.env.REACT_APP_PORT}/paymentPhone/${params.id}`),
+        element: <Payment />,
+      },
+    ],
   },
   {
     path: "/sellerDashboard",

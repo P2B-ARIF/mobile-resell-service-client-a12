@@ -7,6 +7,7 @@ import { authContext } from "../../Components/AuthProvider/AuthProvider";
 import { RoleChecker } from "./../../Components/Hooks/userChecker";
 import AddProducts from "./AddProducts";
 import toast from "react-hot-toast";
+import image from "./../../assets/favicon.png";
 
 const navigation = [
   { name: "Home", to: "/", current: false },
@@ -23,13 +24,13 @@ const SellerDashboard = () => {
   const [modelData, setModelData] = useState([]);
   // const [isRole, setIsRole] = useState("");
   // const [theUser, setTheUser] = useState(user)
-// const isRole = ''
+  // const isRole = ''
   const navigate = useNavigate();
   // const isRole = RoleChecker(user);
-    const isRole = RoleChecker(user)
-    // console.log(theUser);
-  
-    // console.log(isRole)
+  const isRole = RoleChecker(user);
+  // console.log(theUser);
+
+  // console.log(isRole)
   const handleLogout = () => {
     logOut()
       .then(() => {
@@ -49,12 +50,13 @@ const SellerDashboard = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          RoleChecker(user)
+          RoleChecker(user);
           toast.success("Your request sent");
           // setTheUser(user)
         }
         console.log(data);
-      }).catch(err => console.log(err))
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -67,11 +69,7 @@ const SellerDashboard = () => {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
-                      />
+                      <img className="h-8 w-8" src={image} alt="Your Company" />
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-center  space-x-4">
