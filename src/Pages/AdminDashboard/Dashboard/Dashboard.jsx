@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { authContext } from "../../../Components/AuthProvider/AuthProvider";
 import { RoleChecker } from "./../../../Components/Hooks/userChecker";
+import logo from './../../../assets/favicon.png'
 
 const navigation = [
   { name: "All Users", to: "/dashboard", current: false },
@@ -45,7 +46,7 @@ export default function Dashboard() {
                     <div className="flex-shrink-0">
                       <img
                         className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                        src={logo}
                         alt="Your Company"
                       />
                     </div>

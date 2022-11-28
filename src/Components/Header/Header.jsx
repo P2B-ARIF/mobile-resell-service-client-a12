@@ -86,7 +86,7 @@ const Header = () => {
               ""
             )}
             {isRole?.status === "admin" && user?.email ? (
-              <Navbar.Link href="/adminDashboard">Admin Dashboard</Navbar.Link>
+              <Navbar.Link href="/dashboard">Admin Dashboard</Navbar.Link>
             ) : (
               ""
             )}

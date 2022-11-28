@@ -30,7 +30,7 @@ const Register = ({ modalIssOpen, setModelIssOpen, setLoginModalOpen }) => {
         toast.success("Successfully account created");
         userUpdate({ displayName: name })
           .then(() => {
-            getUserToken(email)
+            getUserToken(email);
             const theUsers = {
               name,
               email,
@@ -47,7 +47,6 @@ const Register = ({ modalIssOpen, setModelIssOpen, setLoginModalOpen }) => {
             })
               .then((res) => res.json())
               .then((data) => {
-
                 console.log(data, "data save in server");
               })
               .catch((err) => console.error(err, "data not saved in server"));
@@ -68,7 +67,10 @@ const Register = ({ modalIssOpen, setModelIssOpen, setLoginModalOpen }) => {
       });
   };
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = (e) => {
+    e.preventDefault();
+
+    
     loginWithGoogle(provider)
       .then((result) => {
         const user = result.user;
